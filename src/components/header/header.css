@@ -1,0 +1,17 @@
+.container {
+  height: 80px;
+  font-size: 18px;
+  display: flex;
+  column-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+.active {
+  color: #0000ee;
+}
+.link:hover {
+  color: #f8e5c9;
+  cursor: pointer;
+}

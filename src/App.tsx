@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/header/header";
+import LineChart from "./components/line-chart/line-chart";
+import "./App.css";
+import BarChart from "./components/bar-chart/bar-chart";
+import ProfitLossAnalysisChart from "./components/combined-chart/combined-chart";
+import StackedBubbleChart from "./components/stacked-bubble-chart/stacked-bubble-chart";
 
 function App() {
+  const [showChart, setShowChart] = useState<string>("lineChart");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header setShowChart={setShowChart} showChart={showChart} />
+
+      {showChart === "lineChart" && (
+        <div className="chartContainer">
+          <LineChart />
+        </div>
+      )}
+
+      {showChart === "barChart" && (
+        <div className="chartContainer">
+          <BarChart />
+        </div>
+      )}
+
+      {showChart === "combinedChart" && (
+        <div className="chartContainer">
+          <ProfitLossAnalysisChart />
+        </div>
+      )}
+
+      {showChart === "StackedBubble" && (
+        <div className="chartContainer">
+          <StackedBubbleChart />
+        </div>
+      )}
     </div>
   );
 }
